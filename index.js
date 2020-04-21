@@ -8,6 +8,25 @@ const url = "mongodb+srv://admin:passw0rd@mongo-productcatalog-roxs3.mongodb.net
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(function (req, res, next) {
+    /*var err = new Error('Not Found');
+     err.status = 404;
+     next(err);*/
+  
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  
+    // Request methods you wish to allow
+    //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    //res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+  
+  //  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  
+    // Pass to next layer of middleware
+    next();
+  });
 
 app.get('/listproducts', function (req, res) {
     console.log(req.body);
@@ -171,5 +190,5 @@ app.delete('/delbycategory/:id', function (req, res) {
 
 app.listen(process.env.PORT, function () {
 
-    console.log("port is running at " + process.env.PORT);
+    console.log("port is running at ",process.env.PORT);
 });
