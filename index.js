@@ -3,7 +3,7 @@ const app = express();
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const mongoClient = require('mongodb');
-const url = "mongodb://localhost:27017";
+const url = "mongodb+srv://admin:passw0rd@mongo-productcatalog-roxs3.mongodb.net/catalogdb?retryWrites=true&w=majority";
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
