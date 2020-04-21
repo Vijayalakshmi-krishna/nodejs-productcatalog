@@ -169,7 +169,7 @@ app.delete('/delbycategory/:id', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
 
-    console.log("port is running at 3000...");
+    console.log("port is running at " + process.env.PORT);
 });
